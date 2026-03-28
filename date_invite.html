@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Date Invite</title>
+<style>
+body {background:#ffe6f0; font-family:Arial; text-align:center; margin-top:120px; overflow:hidden;}
+h1 {color:#ff3399;}
+button {padding:15px 30px; font-size:20px; margin:20px; border:none; border-radius:10px; cursor:pointer;}
+#yes {background:#66ff99;}
+#no {background:#ff6666; position:absolute;}
+#message {display:none; font-size:28px; color:#ff3399; margin-top:30px;}
+.heart {position:fixed; top:-20px; font-size:24px; animation:fall linear forwards;}
+@keyframes fall {to {transform: translateY(110vh);} }
+</style>
+<script>
+function showMessage(){
+document.getElementById("message").style.display="block";
+}
+function moveNo(){
+var btn=document.getElementById("no");
+btn.style.left=Math.random()*80+"%";
+btn.style.top=Math.random()*80+"%";
+}
+function createHeart(){
+var heart=document.createElement("div");
+heart.className="heart";
+heart.innerHTML="❤️";
+heart.style.left=Math.random()*100+"vw";
+heart.style.animationDuration=(Math.random()*3+2)+"s";
+document.body.appendChild(heart);
+setTimeout(function(){heart.remove();},5000);
+}
+setInterval(createHeart,300);
+</script>
+</head>
+<body>
+<h1>Will you go on a date with me? 💕</h1>
+<button id="yes" onclick="showMessage()">YES 💖</button>
+<button id="no" onmouseover="moveNo()">NO 😜</button>
+<div id="message">Yay! I cannot wait for our date ❤️</div>
+</body>
+</html>
